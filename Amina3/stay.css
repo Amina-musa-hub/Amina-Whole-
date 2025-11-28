@@ -1,0 +1,144 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(218, 218, 245);
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+}
+.contianer{
+  background-color: #fff;
+  display: flex;
+  height: 480px;
+  width: 750px;
+  border-radius: 20px;
+}
+.results{
+    background-color: blue;
+    height: 100%;
+    width: 50%;
+    border-radius: 20px;
+    text-align: center;
+    padding: 0px;
+}
+h1.reult{
+    margin-top: 30px;
+    color:rgb(255, 255, 255,0.8);
+    margin-bottom: 30px;
+}
+.hero{
+    background-image: linear-gradient(rgba(0, 0, 0,0.3),rgba(45, 45, 148,0.0));
+    margin-left: 80px;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+div.resultnumbre{
+    padding-top: 20px;
+    color: #fff;
+}
+p.number{
+    padding-top: 30px;
+    font-size: 15px;
+    color:rgb(255, 255, 255,0.3);
+}
+span.as{
+    color: #fff;
+    font-size: 70px;
+    display: block;
+}
+p.great{
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+div.greats{
+    padding-top: 20px;
+    color: #fff;
+}
+p.progr{
+     color:rgb(255, 255, 255,0.8);
+    font-size: 20px;
+    padding-top: 10px;
+}
+h1.summry{
+    padding:30px;
+}
+.total{
+    padding-left: 30px;
+    gap: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+.data1{
+    background-color: rgba(255, 192, 203,0.3);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.data2{
+    background-color:rgba(230, 207, 79,0.3);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.data3{
+  background-color:rgba(5, 241, 5, 0.2);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.data4{
+   background-color:rgba(142, 178, 233, 0.3);
+    padding: 15px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+}
+.reacion{
+    padding-right: 10px;
+    border-radius: 4px;
+    color: rgb(236, 17, 17);
+
+}
+.rea{
+    padding-right: 20px;
+    color:rgb(238, 203, 7)
+  }  
+
+.re{
+    color:rgb(13, 13, 160);
+    padding-right: 30px;
+}
+.reac{
+    color: rgb(79, 228, 79);
+    padding-right: 30px;
+}
+div p#ss{
+    display: inline-block;
+    padding-left: 120px;
+    padding-right: 6px;
+}
+.contint:hover{
+    background-color:rgba(8, 2, 24, 0.5)
+} 
+
+#a{
+     color:rgba(48, 47, 47, 0.5);
+}
+.contint{
+    background-color:rgb(5, 1, 26);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 60px;
+}
+.con{
+    color: #fff;
+    text-align: center;
+}

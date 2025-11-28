@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آلة حاسبة متطورة</title>
+    <style>
+        /* إعدادات عامة للصفحة */
+        * {
+            box-sizing: border-box;  /* يجعل الحسابات الهندسية أسهل */
+            margin: 0;               /* يزيل الهوامش الافتراضية */
+            padding: 0;              /* يزيل الحشوات الافتراضية */
+            ; /* خط جميل */
+        }
+        
+        /* تنسيق جسم الصفحة */
+        body {
+            display: flex;                   /* يستخدم Flexbox للتصميم */
+            justify-content: center;         /* يوسّط المحتوى أفقيًا */
+            align-items: center;             /* يوسّط المحتوى عموديًا */
+            min-height: 100vh;               /* يجعل ارتفاع الصفحة كامل الشاشة */
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* خلفية متدرجة */
+            padding: 20px;                   /* يضيف مسافة حول الحواف */
+        }
+        
+        /* تصميم الآلة الحاسبة */
+        .calculator {
+            width: 350px;                   /* عرض ثابت للآلة الحاسبة */
+            background-color: #222;         /* لون خلفية غامق */
+            border-radius: 20px;            /* زوايا دائرية */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* ظل لعمق بصري */
+            overflow: hidden;               /* يمنع المحتوى من الخروج عن الحدود */
+        }
+        
+        /* تصميم شاشة العرض */
+        .display {
+            background-color: #000;         /* خلفية سوداء */
+            color: white;                   /* نص أبيض */
+            text-align: left;               /* محاذاة النص لليسار (رغم أن الاتجاه RTL) */
+            padding: 30px 20px;             /* مساحة داخلية */
+            font-size: 2.5rem;              /* حجم خط كبير */
+            height: 120px;                  /* ارتفاع ثابت */
+            display: flex;                  /* Flexbox لمحاذاة الرقم */
+            align-items: center;            /* توسيط عمودي */
+            justify-content: flex-end;      /* محاذاة لليمين */
+            overflow: hidden;               /* إخفاء المحتوى الزائد */
+        }
+        
+        /* تصميم مجموعة الأزرار */
+        .buttons {
+            display: grid;                 /* يستخدم نظام Grid للتخطيط */
+            grid-template-columns: repeat(4, 1fr); /* 4 أعمدة متساوية العرض */
+            gap: 1px;                      /* فجوة صغيرة بين الأزرار */
+            background-color: #333;        /* لون خلفية */
+        }
+        
+        /* تصميم الأزرار العامة */
+        button {
+            border: none;                  /* إزالة الحدود الافتراضية */
+            padding: 20px;                 /* مساحة داخلية */
+            font-size: 1.5rem;             /* حجم خط مناسب */
+            cursor: pointer;               /* مؤشر يدوي عند التمرير */
+            transition: all 0.2s;          /* تأثير انتقالي سلس */
+        }
+        
+        /* أزرار الأرقام */
+        .number {
+            background-color: #555;        /* لون خلفية غامق */
+            color: white;                  /* لون نص أبيض */
+        }
+        
+        /* أزرار العمليات */
+        .operation {
+            background-color: #ff9500;     /* لون برتقالي مميز */
+            color: white;                  /* نص أبيض */
+            font-size: 1.8rem;             /* حجم خط أكبر قليلاً */
+        }
+        
+        /* أزرار خاصة (مسح، إلخ) */
+        .special {
+            background-color: #444;        /* لون مختلف قليلاً */
+            color: white;                  /* نص أبيض */
+        }
+        
+        /* تأثير عند تمرير الماوس فوق الأزرار */
+        button:hover {
+            opacity: 0.9;                  /* تخفيف طفيف للون */
+        }
+        
+        /* تأثير عند النقر على الأزرار */
+        button:active {
+            transform: scale(0.95);        /* تصغير طفيف عند النقر */
+        }
+        
+        /* زر المسح (C) بلون مختلف */
+        .clear {
+            background-color: #ff3b30;     /* لون أحمر */
+        }
+        
+        /* زر يساوي بلون مختلف */
+        .equals {
+            background-color: #4cd964;     /* لون أخضر */
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <!-- شاشة العرض التي تظهر الأرقام والنتائج -->
+        <div class="display" id="display">0</div>
+        
+        <!-- مجموعة الأزرار -->
+        <div class="buttons">
+            <!-- الأزرار مع classes مختلفة حسب الوظيفة -->
+            <button class="special clear" onclick="clearDisplay()">C</button>
+            <button class="special" onclick="deleteLast()">←</button>
+            <button class="operation" onclick="appendOperation('%')">%</button>
+            <button class="operation" onclick="appendOperation('÷')">÷</button>
+            
+            <button class="number" onclick="appendNumber('7')">7</button>
+            <button class="number" onclick="appendNumber('8')">8</button>
+            <button class="number" onclick="appendNumber('9')">9</button>
+            <button class="operation" onclick="appendOperation('×')">×</button>
+            
+            <button class="number" onclick="appendNumber('4')">4</button>
+            <button class="number" onclick="appendNumber('5')">5</button>
+            <button class="number" onclick="appendNumber('6')">6</button>
+            <button class="operation" onclick="appendOperation('-')">-</button>
+            
+            <button class="number" onclick="appendNumber('1')">1</button>
+            <button class="number" onclick="appendNumber('2')">2</button>
+            <button class="number" onclick="appendNumber('3')">3</button>
+            <button class="operation" onclick="appendOperation('+')">+</button>
+            
+            <button class="number" onclick="appendNumber('0')">0</button>
+            <button class="number" onclick="appendNumber('.')">.</button>
+            <button class="equals" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        // المتغيرات الأساسية
+        let currentInput = "0";    // تخزين المدخلات الحالية
+        let previousInput = "";    // تخزين المدخلات السابقة
+        let operation = null;      // تخزين العملية الحالية
+        let shouldResetScreen = false; // تحديد إذا كان يجب إعادة تعيين الشاشة
+        
+        // عناصر DOM
+        const display = document.getElementById('display');
+        
+        // مسح الشاشة وإعادة تعيين جميع القيم
+        function clearDisplay() {
+            currentInput = "0";
+            previousInput = "";
+            operation = null;
+            updateDisplay();
+        }
+        
+        // حذف آخر رقم مدخل
+        function deleteLast() {
+            if (currentInput.length === 1) {
+                currentInput = "0";
+            } else {
+                currentInput = currentInput.slice(0, -1);
+            }
+            updateDisplay();
+        }
+        
+        // إضافة رقم إلى المدخلات الحالية
+        function appendNumber(number) {
+            // إذا كانت الشاشة تحتاج إعادة تعيين أو كانت تحتوي على 0 فقط
+            if (shouldResetScreen || currentInput === "0") {
+                currentInput = number;
+                shouldResetScreen = false;
+            } else {
+                // منع إضافة أكثر من نقطة عشرية واحدة
+                if (number === '.' && currentInput.includes('.')) return;
+                currentInput += number;
+            }
+            updateDisplay();
+        }
+        
+        // إضافة عملية حسابية
+        function appendOperation(op) {
+            // إذا كان هناك عملية قيد التنفيذ بالفعل، احسبها أولاً
+            if (operation !== null) calculate();
+            
+            previousInput = currentInput;
+            operation = op;
+            shouldResetScreen = true;
+        }
+        
+        // تنفيذ العملية الحسابية
+        function calculate() {
+            let computation;
+            const prev = parseFloat(previousInput);
+            const current = parseFloat(currentInput);
+            
+            // إذا لم تكن هناك أرقام أو عملية، لا تفعل شيئاً
+            if (isNaN(prev) || isNaN(current) || operation === null) return;
+            
+            // تنفيذ العملية المناسبة
+            switch (operation) {
+                case '+':
+                    computation = prev + current;
+                    break;
+                case '-':
+                    computation = prev - current;
+                    break;
+                case '×':
+                    computation = prev * current;
+                    break;
+                case '÷':
+                    // منع القسمة على صفر
+                    if (current === 0) {
+                        computation = "خطأ!";
+                    } else {
+                        computation = prev / current;
+                    }
+                    break;
+                case '%':
+                    computation = prev % current;
+                    break;
+                default:
+                    return;
+            }
+            
+            // تحديث المدخلات الحالية بالنتيجة
+            currentInput = computation.toString();
+            operation = null;
+            shouldResetScreen = true;
+            updateDisplay();
+        }
+        
+        // تحديث شاشة العرض بالقيمة الحالية
+        function updateDisplay() {
+            // تقليل حجم الخط إذا كان الرقم طويلاً
+            if (currentInput.length > 10) {
+                display.style.fontSize = "2rem";
+            } else {
+                display.style.fontSize = "2.5rem";
+            }
+            
+            // عرض القيمة الحالية
+            display.textContent = currentInput;
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>

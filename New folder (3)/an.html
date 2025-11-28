@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h4>hhhhhh</h4>
+      <h3 id="titel1" style="visibility: hidden;">section-1</h3> 
+      <h3 id="titel2" style="visibility: hidden;">section-2</h3>
+      <h3 id="titel3" style="visibility: hidden;">section-3</h3>
+      <h3 id="titel4" style="visibility: hidden;">section-4</h3>
+
+      <P id="demo"></P>
+      <p id="dmo"></p>
+        <script src="amin.js"></script>  
+
+    <script>
+        // setTimeout(() => {
+        //         document.getElementById("titel1").style.visibility = "visible"
+
+        //              setTimeout(() => {
+        //                     document.getElementById("titel2").style.visibility = "visible"
+
+        //             setTimeout(() => {
+        //                      document.getElementById("titel3").style.visibility = "visible"
+
+        //                       setTimeout(() => {
+        //                          document.getElementById("titel4").style.visibility = "visible"
+                
+        //            }, 2000);   
+        //        }, 2000);
+        //      }, 2000);
+        // }, 2000);
+        // ;
+
+//     let a  =  new Promise (function(resolve,regect){
+
+//         setTimeout(() => {
+//             document.getElementById("titel2").style.visibility = "visible"
+//             resolve() 
+//         }, 2000);})
+//         // console.log("starting the async code");
+//         // isseee = true
+//         //      if(isseee) {
+//         //          console.log("calling resolve")
+//         //         resolve() 
+//         //      } else{
+//         //          console.log("calling regect")
+//         //         regect()
+//         //      }
+//         // })
+         
+//     console.log("after the promise creatiton and before then and catch")
+//     a.then(function(){
+//         console.log("calling then")
+//     }).catch(function(){
+//         console.log("error")
+//     })    
+
+//     Promise.any([])
+
+//     const myPromise1 = new Promise((resolve, reject) => {
+//   setTimeout(resolve, 200, "King");
+// });
+
+// // Create another Promise
+// const myPromise2 = new Promise((resolve, reject) => {
+//   setTimeout(resolve, 100, "Queen");
+// });
+
+// // Run when Any promise fulfills
+// Promise.any([myPromise1, myPromise2]).then((x) => {
+//   myDisplay(x);
+// });
+
+// // Funtion to run when a Promise is settled:
+// function myDisplay(some) {
+//   document.write(some)
+// }
+
+let myobject = {
+    name:"Amina"
+}
+console.log(Object.hasOwn(myobject, "age"))
+
+try {
+  eval("alert('Hello)");
+}
+catch(err) {
+  document.write(err.name);
+}
+
+
+let v = BigInt("3333333333333333")
+console.log(typeof v)
+
+
+const myArr = [[1,2],[3,4],[5,6]];
+
+const newArr = myArr.flat();
+console.log(newArr)
+console.log(myArr)
+
+const numbers = [45, 4, 9, 16, 25];
+let allOver18 = numbers.some(myFunction);
+
+function myFunction(value) {
+  return value > 18;
+}
+console.log(allOver18)
+
+let time = Date.now()
+console.log(time)
+
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const x = person
+x.lastName = "dev"
+
+
+
+const persons = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+const person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+document.getElementById("demo").innerHTML = persons.fullName.call(person2); 
+
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  age(x) {
+    return x - this.year;
+  }
+}
+
+const date = new Date();
+let year = date.getFullYear();
+
+const myCar = new Car("Ford", 1997);
+document.getElementById("dmo").innerHTML=
+"My car is " + myCar.age(year) + " years old.";
+    </script>
+</body>
+</html>

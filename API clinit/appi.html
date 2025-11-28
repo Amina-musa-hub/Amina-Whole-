@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body class="bg-gray-200 min-h-screen  p-14">
+    <div class="flex flex-col float-left rounded-lg shadow-2xl bg-gray-600 mt-20 p-3">
+        <div>
+   <button id="getCats" onclick="getCats(3)" class="bg-zinc-500 hover:bg-zinc-700  text-white font-bold py-3 px-4 rounded-lg m-4 shadow-md">Click to view 3 cats </button><br>
+   <button id="getCats" onclick="getCats(5)" class="bg-zinc-500 hover:bg-zinc-700  text-white font-bold py-3 px-4 rounded-lg m-4 shadow-md">Click to view 5 cats  </button><br> 
+   <button id="getCats" onclick="getCats(10)" class="bg-zinc-500 hover:bg-zinc-700  text-white font-bold py-3 px-4 rounded-lg m-4 shadow-md">Click to view 10 cats </button><br> 
+   <button id="getCats" onclick="getCats(20)" class="bg-zinc-500 hover:bg-zinc-700  text-white font-bold py-3 px-4 rounded-lg m-4 shadow-md">Click to view 30 cats </button><br> 
+   <button id="getCats" onclick="getCats(30)" class="bg-zinc-500 hover:bg-zinc-700  text-white font-bold py-3 px-4 rounded-lg m-4 shadow-md">Click to view 50 cats</button><br>
+   <button id="getCats" onclick="getCats(100)" class="bg-zinc-500 hover:bg-zinc-700  text-white font-bold py-3 px-4 rounded-lg m-4 shadow-md">Click to view 100 cats</button> 
+        </div>
+    </div>
+    <div class="flex flex-col items-center"> 
+    <h1 class="text-3xl font-bold mb-6"> Pictures of cats</h1>
+   </div> 
+   <div class="flex flex-col items-center ">
+    <div id="api-content" class=" items-centerw-full bg-gray-600 max-w-4xl p-4 shadow-2xl p-2 rounded-lg mb-4 grid grid-cols-3 gap-2 mt-5 " >
+    </div>
+   </div>
+    <script>
+       const app = document.getElementById("api-content")
+       const button = document.getElementById("getCats")      
+    //    const limit = 3
+
+       function getCats(limit){
+   fetch(`
+   https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=${limit}`,
+   {
+     method: "GET",
+     headers: {
+       "Content-Type": "application/json",
+       "x-api-key":
+         "live_rwnzTVengtJhQRL8LwD0S2EUx058DSrCR5Z5WvPsrMMKJHRLsvrKVMAjq67Iibch",
+     },
+   }
+   )
+      .then(response => response.json())
+      .then(data => {
+      console.log(data)
+      app.innerHTML = data.map((data) =>  `
+      <div class="">
+      <img src="${data.url}" class=" rounded-2xl shadow-lg w-full h-64 object-cover" alt="Cat">
+      </div>
+      `)
+      })
+      .catch(error => console.log('error', error)); 
+      
+    }
+    // getCats()
+    button.addEventListener("click", getCats)
+
+
+
+
+
+        // let apii = document.getElementById("api-content")
+        // fetch("http://api.thecatapi.com/v1/images/BkIEhN3pG") 
+        // .then((res) => res.json())
+        // .then(data => { 
+        //     console.log(data)
+        //     apii.innerHTML = data.map((data) => `
+        //     <h1 class="font-bold">${data.id}</h1>
+        //     <p class="text-md">${data.title}</p>
+        //     <p>${data.body}</p>
+        //     `)
+        //ok inside your fetch you are using “” instead of `` change it from “” to `` so it will fetch(https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=${limit})
+        // })
+        // redirect:"follow"}
+        //data()         
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>قائمة جانبية</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      direction: rtl;
+    }
+
+    /* إخفاء زر التحكم */
+    #sidebar-toggle {
+      display: none;
+    }
+
+    /* زر فتح/إغلاق القائمة */
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #333;
+      color: white;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 2;
+      font-size: 18px;
+    }
+
+    /* القائمة الجانبية */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #222;
+      color: white;
+      padding: 20px;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+      transition: right 0.3s ease;
+      z-index: 1;
+    }
+
+    /* عندما يتم تفعيل checkbox، تظهر القائمة */
+    #sidebar-toggle:checked ~ .sidebar {
+      right: 0;
+    }
+
+    /* تغيير محتوى الزر عند الفتح */
+    #sidebar-toggle:checked + .menu-btn::before {
+      content: "✖ إغلاق";
+    }
+
+    .menu-btn::before {
+      content: "☰ قائمة";
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 15px 0;
+      font-size: 18px;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- زر التحكم المخفي -->
+  <input type="checkbox" id="sidebar-toggle">
+
+  <!-- زر فتح/إغلاق -->
+  <label for="sidebar-toggle" class="menu-btn"></label>
+
+  <!-- القائمة الجانبية -->
+  <div class="sidebar">
+    <h2>القائمة الرئيسية</h2>
+    <a href="#">الرئيسية</a>
+    <a href="#">الملف الشخصي</a>
+    <a href="#">الإعدادات</a>
+    <a href="#">تسجيل الخروج</a>
+  </div>
+
+</body>
+</html>
+  </body>
+  </html>
+      

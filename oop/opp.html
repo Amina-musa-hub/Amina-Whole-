@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <h3 id="title1" style="visibility: hidden;">section-1</h3> 
+      <h3 id="title2" style="visibility: hidden;">section-2</h3>
+      <h3 id="title3" style="visibility: hidden;">section-3</h3>
+      <h3 id="title4" style="visibility: hidden;">section-4</h3>
+</head>
+<body>
+    <script>
+        //  class Person{
+        //     constructor(name , age){
+        //         this.name = name
+        //         this.age = age
+        //     }
+        //     move(){
+        //         console.log('moving ' + this.name)
+        //     }
+
+        //     salem(){
+        //         console.log('hello world '+ this.age)
+        //     }
+        //  }
+
+        //  let per = new Person("Hassan", 26) 
+        //  let ani = new Person( "ali", 25) 
+        //  let mal = new Person("anas", 23) 
+
+        
+        //  per.move()
+        //  per.salem()
+
+
+
+         let promise = new Promise((resolve, reject) => {
+            
+            setTimeout(() => {
+              document.getElementById("title1").style.visibility = "visible"  
+              resolve()
+            }, 2000);
+         }).then(() => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  document.getElementById("title2").style.visibility = "visible"  
+                  resolve()
+                }, 2000);
+             })
+        console.log("promise resolved")
+       })
+
+    </script>
+</body>
+</html>

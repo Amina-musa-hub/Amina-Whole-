@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TO-DO App</h1>
+    <form id="ourForm">
+        <input id="field" type="text" autocomplete="off">
+        <button>Create item</button>
+    </form>
+    <h3>Need To Do</h3>
+    <ul id="lists">
+    </ul>
+
+    <div style="display: flex; gap: 10px;margin-bottom: 20px;">
+        <div>
+        <h2>first Number</h2>
+        <input type="text" id="first-input">
+    </div>
+     <div>
+        <h2>Second Number</h2>
+        <input type="text" id="second-input">
+    </div>
+    </div>
+    <div style="margin-left: 120px;">
+        <div>
+        <button style="margin-left: 26px;" id="calc-btn">Divide</button>
+    </div>
+    <div>
+        <h2 id="">Result:<span id="result"> 20 </span></h2>
+    </div>
+    </div>
+    <button onclick="document.getElementById('time').innerHTML=Date()"> time </button>
+    <P id="time"></P>
+    <script src="amini.js"></script>
+    <script src="amna.js"></script>
+</body>
+</html>
